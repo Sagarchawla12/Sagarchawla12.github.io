@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c151b">
+  <meta name="description" content="Sagar Chawla's aerospace engineering portfolio, featuring aircraft structures, flight performance, orbital dynamics and optical engineering.">
+  <title>Sagar Chawla — Aerospace Engineering Portfolio</title>
+  <link rel="icon" href="./assets/mark.png" type="image/png">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./projects.js" defer></script>
+  <script src="./main.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Sagar Chawla home"><span class="mark">SC</span><span>Sagar Chawla<small>AEROSPACE ENGINEERING</small></span></a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a class="nav-contact" href="#contact">Contact <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+    <div class="reading-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="shell hero-inner">
+        <div class="intro">
+          <div class="eyebrow"><span class="signal"></span> MONTRÉAL, QC <span class="dot">/</span> MCGILL UNIVERSITY</div>
+          <h1>Sagar<br><em>Chawla<span>.</span></em></h1>
+          <p class="hero-role">Aerospace Engineer</p>
+          <p class="hero-description">At IISc Bengaluru, I performed mesh generation and computational fluid dynamics (CFD) analysis for a defence research project on aerodynamic technologies for unmanned aerial vehicles (UAVs). At ADE&ndash;DRDO, I validated CFD models against experimental data and co-authored a paper for the AeSI CFD Symposium. Building on that foundation in CFD and aerodynamics, my graduate work at McGill now focuses on aircraft structures and materials, with an emphasis on the mechanics of composite materials.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+            <a class="hero-research" href="#research">Published research <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <figure class="model" aria-labelledby="model-title">
+          <div class="model-top"><span id="model-title">FUSELAGE WIND TUNNEL</span><button type="button" id="airflow-toggle">Pause airflow</button></div>
+          <canvas id="airflow" aria-hidden="true"></canvas>
+          <canvas id="mesh" role="img" aria-label="Illustrative three-dimensional wireframe of a fuselage. Use the controls below to change its cross-section or rotate it."></canvas>
+          <div class="diagram-label"><span>SECTION A–A</span><span id="ratio-label">b/a = 1.00</span></div>
+          <span class="diagram-caption">Illustrative airflow</span>
+          <div class="view-controls">
+            <div class="shape-buttons" role="group" aria-label="Cross-section ratio">
+              <button type="button" data-shape="1" aria-pressed="true" title="Circular cross-section">1.00</button>
+              <button type="button" data-shape=".75" aria-pressed="false" title="Elliptical cross-section with b/a of 0.75">0.75</button>
+              <button type="button" data-shape=".5" aria-pressed="false" title="Elliptical cross-section with b/a of 0.50">0.50</button>
+            </div>
+            <div class="turn-buttons" role="group" aria-label="Rotate model">
+              <button type="button" id="model-spin" aria-pressed="false">Auto-rotate</button>
+              <button type="button" data-turn="-1" aria-label="Rotate left" title="Rotate left">↶</button>
+              <button type="button" data-turn="1" aria-label="Rotate right" title="Rotate right">↷</button>
+            </div>
+          </div>
+          <figcaption><span>Drag to rotate</span><button type="button" class="model-link" data-project="fuselage">Read the case study <span aria-hidden="true">↗</span></button></figcaption>
+        </figure>
+      </div>
+      <div class="shell deck-destinations" aria-label="Portfolio shortcuts"><a href="#work">Mission log <span aria-hidden="true">&darr;</span></a><a href="#research">Published research <span aria-hidden="true">&darr;</span></a><a href="#experience">Flight record <span aria-hidden="true">&darr;</span></a><a href="#education">Education <span aria-hidden="true">&darr;</span></a><button type="button" id="colour-motion" hidden>Pause colours</button></div>
+    </section>
+
+    <section id="work" class="work shell" tabindex="-1">
+      <div class="section-label"><span>01</span> / MISSION LOG</div>
+      <div class="section-head">
+        <h2>Selected work<span>.</span></h2>
+        <canvas id="aircraft-planform" role="img" aria-label="Top view of a full aircraft, showing the fuselage, swept wings, engines, and tail"></canvas>
+      </div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" data-filter="all" aria-pressed="true">All projects</button>
+        <button type="button" data-filter="structures" aria-pressed="false">Structures &amp; materials</button>
+        <button type="button" data-filter="flight" aria-pressed="false">Flight &amp; space</button>
+        <button type="button" data-filter="optics" aria-pressed="false">Optics &amp; photonics</button>
+        <button type="button" data-filter="systems" aria-pressed="false">Systems &amp; sustainability</button>
+      </div>
+      <p id="filter-status" class="sr-only" aria-live="polite"></p>
+      <div class="work-layout">
+        <div id="project-grid" class="project-grid"></div>
+        <aside id="research" class="research" aria-labelledby="research-title" tabindex="-1">
+          <h3 id="research-title">Published research</h3>
+          <article class="publication">
+            <p class="card-meta">Conference proceedings · 2022</p>
+            <h4>Application of Mosaic Mesh on Store Separation Modelling and Its Validation with Experimental Data</h4>
+            <p>23rd Aeronautical Society of India Annual CFD Symposium, Bengaluru, pp. 213–218.</p>
+            <a class="publication-link" href="#lpu-report">Explore the LPU final report case study <span aria-hidden="true">↓</span></a>
+            <details>
+              <summary>Authors and citation</summary>
+              <p class="citation-text">P. B. Pansare, E. K. Mishra, G. Brahma, S. Chawla and R. Kumar. “Application of Mosaic Mesh on Store Separation Modelling and Its Validation with Experimental Data.” 23rd AeSI Annual CFD Symposium, 2022, pp. 213–218.</p>
+            </details>
+          </article>
+          <div class="patent-records" id="patent-publications" tabindex="-1">
+            <h4>Patent application publications</h4>
+            <p>Five applications published by the Indian Patent Office.</p>
+            <dl>
+              <dt>A Method of Vertical Take Off and Landing for New Generation Electric Aircrafts</dt>
+              <dd>202211010157 A · <time datetime="2022-08-12">12 Aug 2022</time></dd>
+              <dt>Multiple Missile Ejection System</dt>
+              <dd>202211026966 A · <time datetime="2022-05-27">27 May 2022</time></dd>
+              <dt>Aircraft Crash Detection System</dt>
+              <dd>202211023301 A · <time datetime="2022-04-29">29 Apr 2022</time></dd>
+              <dt>Amalgamated Missile Wing Configuration with Splitting Mechanism</dt>
+              <dd>202211004652 A · <time datetime="2022-03-11">11 Mar 2022</time></dd>
+              <dt>A System of Delta Wing Section with Reverse Missile</dt>
+              <dd>202111056370 A · <time datetime="2021-12-10">10 Dec 2021</time></dd>
+            </dl>
+          </div>
+        </aside>
+      </div>
+      <noscript><p>Selected work includes pressurized fuselage GFEM, Boeing 747-400 flight performance, CubeSat orbital evolution, an automotive head-up display, carbon-fibre composites, and life cycle assessment.</p></noscript>
+      <section id="lpu-report" class="lpu-report" aria-labelledby="lpu-title" tabindex="-1">
+        <div class="lpu-inner">
+          <div class="lpu-copy">
+            <a class="report-close" href="#work">Back to Selected Work <span aria-hidden="true">↑</span></a>
+            <p class="card-meta">BTech training report · 2021–2022</p>
+            <h2 id="lpu-title">Prediction of Store Separation Trajectory and its Visualization<span>.</span></h2>
+            <p class="lpu-lead">My undergraduate research team at the Aeronautical Development Establishment (ADE–DRDO), Bengaluru, studied an aircraft store separation problem through computational modelling and comparison with experimental data.</p>
+            <dl class="lpu-credits">
+              <div><dt>Submitted to</dt><dd>Lovely Professional University, BTech in Aerospace Engineering</dd></div>
+              <div><dt>Training period</dt><dd>July 2021 – May 2022</dd></div>
+              <div><dt>Report authors</dt><dd>Gopalchetty Brahma, Eshu Krishna Mishra, Pratik Balasaheb Pansare and Sagar Chawla</dd></div>
+            </dl>
+            <a class="button secondary" href="#research">See the conference citation <span aria-hidden="true">↑</span></a>
+          </div>
+          <div class="lpu-highlights">
+            <h3>Research and validation</h3>
+            <ol class="lpu-stages">
+              <li><h4>Computational research</h4><p>The team used MATLAB/Simulink and ANSYS Fluent to study the same engineering question from different modelling perspectives.</p></li>
+              <li><h4>Experimental comparison</h4><p>The report compared computational predictions with benchmark experimental data to assess how well the simulations represented the observed motion.</p></li>
+              <li><h4>Conference publication</h4><p>I co-authored the related AeSI CFD Symposium paper on Mosaic meshing and experimental validation in 2022.</p></li>
+            </ol>
+            <a class="lpu-patents" href="#patent-publications">View patent application publications <span aria-hidden="true">↗</span></a>
+          </div>
+          <section class="lpu-gallery" aria-labelledby="lpu-gallery-title">
+            <div class="lpu-gallery-heading">
+              <h3 id="lpu-gallery-title">Figures from the final report</h3>
+              <p>Select a figure to open the gallery.</p>
+            </div>
+            <div class="lpu-gallery-grid lpu-gallery-featured">
+              <figure>
+                <a href="./assets/lpu-missile-surface-view.webp" target="_blank" rel="noopener" aria-label="Open the missile surface view in a new tab">
+                  <img src="./assets/lpu-missile-surface-view.webp" width="708" height="424" loading="lazy" alt="Oblique view of the standalone missile model with a teal body and contrasting tail fins">
+                </a>
+                <figcaption><strong>Missile surface view</strong><p>The oblique view shows the exterior body and tail surfaces of the standalone model.</p></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-wing-pylon-view.webp" target="_blank" rel="noopener" aria-label="Open the standalone wing and pylon view in a new tab">
+                  <img src="./assets/lpu-wing-pylon-view.webp" width="708" height="426" loading="lazy" alt="Wing and pylon shown as a standalone surface against a purple mesh background">
+                </a>
+                <figcaption><strong>Wing and pylon surface view</strong><p>The wing and its underwing support appear as a separate model in the report.</p></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-store-model.webp" target="_blank" rel="noopener" aria-label="Open the missile model image in a new tab">
+                  <img src="./assets/lpu-store-model.webp" width="432" height="334" loading="lazy" alt="Oblique MATLAB view of the finned missile model shown in the training report">
+                </a>
+                <figcaption><strong>Missile model visualized in MATLAB</strong><p>A single perspective view from the report’s visualization chapter.</p></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-aircraft-panels.webp" target="_blank" rel="noopener" aria-label="Open the aircraft panel model in a new tab">
+                  <img src="./assets/lpu-aircraft-panels.webp" width="646" height="500" loading="lazy" alt="Generic three-dimensional aircraft model covered by a surface panel grid">
+                </a>
+                <figcaption><strong>Generic aircraft panel model</strong><p>An appendix illustration showing how an aircraft’s curved surfaces can be represented as panels.</p></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-x15-drop-test.webp" target="_blank" rel="noopener" aria-label="Open the historical X-15 and B-52 test photo in a new tab">
+                  <img src="./assets/lpu-x15-drop-test.webp" width="640" height="498" loading="lazy" alt="Historical black-and-white photograph of the X-15 and B-52 drop-test models">
+                </a>
+                <figcaption><strong>X-15 and B-52 drop-test photograph</strong><p>A historical photograph from the report’s introduction to experimental research.</p></figcaption>
+              </figure>
+            </div>
+            <div class="lpu-gallery-grid">
+              <figure>
+                <a href="./assets/lpu-report-cover.webp" target="_blank" rel="noopener" aria-label="Open cropped report title page in a new tab">
+                  <img src="./assets/lpu-report-cover.webp" width="1076" height="598" loading="lazy" alt="Title page excerpt showing the training report title and ADE–DRDO attribution">
+                </a>
+                <figcaption><strong>Training report cover</strong><span>Title page excerpt</span></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-wall-flow.webp" target="_blank" rel="noopener" aria-label="Open turbulent wall-flow illustration in a new tab">
+                  <img src="./assets/lpu-wall-flow.webp" width="1012" height="512" loading="lazy" alt="Side-by-side sketches of the wall function approach and the two-layer zonal model approach">
+                </a>
+                <figcaption><strong>Turbulent wall-flow models</strong></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-wall-mesh.webp" target="_blank" rel="noopener" aria-label="Open near-wall mesh illustration in a new tab">
+                  <img src="./assets/lpu-wall-mesh.webp" width="660" height="516" loading="lazy" alt="Two mesh diagrams comparing cell spacing near a wall">
+                </a>
+                <figcaption><strong>Near-wall mesh comparison</strong></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-mesh-cells.webp" target="_blank" rel="noopener" aria-label="Open mesh cell geometry illustration in a new tab">
+                  <img src="./assets/lpu-mesh-cells.webp" width="376" height="586" loading="lazy" alt="Drawings of triangular and quadrilateral cells alongside five three-dimensional mesh cell shapes">
+                </a>
+                <figcaption><strong>Mesh cell geometries</strong></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-nose-mosaic.webp" target="_blank" rel="noopener" aria-label="Open nose mosaic mesh in a new tab">
+                  <img src="./assets/lpu-nose-mosaic.webp" width="1400" height="731" loading="lazy" alt="Cutaway showing the surface mesh and surrounding cells around the rounded nose">
+                </a>
+                <figcaption><strong>Nose mosaic mesh</strong><p>A cut-plane view shows the transition between the cells at the surface and the surrounding grid.</p></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-density-side.webp" target="_blank" rel="noopener" aria-label="Open mesh density region, side view in a new tab">
+                  <img src="./assets/lpu-density-side.webp" width="1400" height="834" loading="lazy" alt="Side view showing a dense grid region inside a coarser mesh">
+                </a>
+                <figcaption><strong>Mesh density region, side view</strong><p>The side view makes the change in cell density across the domain visible.</p></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-density-front.webp" target="_blank" rel="noopener" aria-label="Open mesh density region, front view in a new tab">
+                  <img src="./assets/lpu-density-front.webp" width="1400" height="731" loading="lazy" alt="Front view of a refined grid region within a coarser background mesh">
+                </a>
+                <figcaption><strong>Mesh density region, front view</strong><p>The front view shows the same type of grid refinement from another plane.</p></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-pylon-mesh.webp" target="_blank" rel="noopener" aria-label="Open pylon mesh refinement in a new tab">
+                  <img src="./assets/lpu-pylon-mesh.webp" width="1400" height="731" loading="lazy" alt="Cross-section showing layers of cells around the pylon surface">
+                </a>
+                <figcaption><strong>Pylon mesh refinement</strong><p>The cross-section shows finer cells near the pylon and coarser cells farther away.</p></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-polyhex-mesh.webp" target="_blank" rel="noopener" aria-label="Open component polyhex mesh in a new tab">
+                  <img src="./assets/lpu-polyhex-mesh.webp" width="1400" height="731" loading="lazy" alt="Section view of the component surrounded by a purple mesh">
+                </a>
+                <figcaption><strong>Component polyhex mesh</strong><p>The Y-plane view shows how the component sits inside its surrounding mesh.</p></figcaption>
+              </figure>
+              <figure>
+                <a href="./assets/lpu-pressure-contour.webp" target="_blank" rel="noopener" aria-label="Open surface pressure contour in a new tab">
+                  <img src="./assets/lpu-pressure-contour.webp" width="1400" height="658" loading="lazy" alt="Color contours of pressure coefficient on the standalone finned model">
+                </a>
+                <figcaption><strong>Surface pressure contour</strong><p>The color bands show how the pressure coefficient varies across the body and fins at zero angle of attack.</p></figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
+      </section>
+    </section>
+
+    <section id="experience" class="experience">
+      <div class="shell experience-inner">
+        <div class="experience-intro">
+          <div class="section-label"><span>02</span> / FLIGHT RECORD</div>
+          <h2>Experience<span>.</span></h2>
+          <div class="toolkit"><h3>ENGINEERING TOOLKIT</h3><ul><li>MATLAB</li><li>ANSYS Fluent</li><li>ICEM CFD</li><li>HiFUN</li><li>HPC</li><li>GFEM</li><li>OpenVSP</li><li>XFLR5</li></ul></div>
+        </div>
+        <div class="timeline">
+          <article><p class="timeline-date">INDUSTRY INTERNSHIP</p><h3>Airbus Canada · Mitacs</h3><p class="role">Engineering intern</p><p>Mechanical stress engineering support for A220 cabin systems and monument configurations.</p></article>
+          <article><p class="timeline-date">2022–2023</p><h3>Indian Institute of Science</h3><p class="role">Project Assistant (Engineer)</p><p>Prepared computational geometry and meshes in ICEM CFD, configured HiFUN simulations, and ran jobs on the Param Pravega HPC cluster. Contributed to work on a flush air data system.</p></article>
+          <article id="ade-experience"><p class="timeline-date">2021–2022</p><h3>Aeronautical Development Establishment</h3><p class="role">Project and research intern</p><p>Worked on a team research project involving MATLAB/Simulink, ANSYS Fluent and experimental validation. The work led to a co-authored contribution at the Aeronautical Society of India CFD symposium. <a class="experience-link" href="#lpu-report">LPU final report case study <span aria-hidden="true">↑</span></a></p>
+
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="education" aria-labelledby="education-title">
+      <div class="shell experience-inner">
+        <div class="experience-intro">
+          <div class="section-label"><span>03</span> / ACADEMIC RECORD</div>
+          <h2 id="education-title">Education<span>.</span></h2>
+        </div>
+        <div class="timeline">
+          <article><p class="timeline-date">GRADUATE STUDIES</p><h3>McGill University</h3><p class="role">MEng in Aerospace Engineering</p><p>Specialization in Structures &amp; Materials, with project work in airframe analysis, flight performance, orbital mechanics and optical systems.</p>
+            <details id="graduate-coursework" class="graduate-coursework">
+              <summary>Graduate coursework</summary>
+              <div class="coursework-content">
+                <h4>McGill University</h4>
+                <ul>
+                  <li><span>MECH 530</span> Mechanics of Composite Materials</li>
+                  <li><span>MECH 532</span> Aircraft Performance, Stability and Control</li>
+                  <li><span>MECH 535</span> Turbomachinery and Propulsion</li>
+                  <li><span>MECH 536</span> Aerospace Structures</li>
+                  <li><span>MECH 542</span> Spacecraft Dynamics</li>
+                  <li><span>MECH 560</span> Eco-design and Product Life Cycle Assessment</li>
+                  <li><span>MECH 562</span> Advanced Fluid Mechanics</li>
+                  <li><span>MECH 632</span> Advanced Mechanics of Materials</li>
+                  <li><span>MECH 652</span> Dynamics of Combustion</li>
+                  <li><span>ECSE 527</span> Optical Engineering</li>
+                </ul>
+                <h4>Polytechnique Montréal</h4>
+                <ul>
+                  <li><span>AER 6611</span> Aerospace Case Studies I</li>
+                  <li><span>PHS 6317E</span> Nanoengineering of Thin Films and Coatings</li>
+                </ul>
+                <h4>Concordia University</h4>
+                <ul>
+                  <li><span>BLDG 6571</span> Project Management</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+          <article id="lpu-education"><p class="timeline-date">2018–2022</p><h3>Lovely Professional University</h3><p class="role">B.Tech in Aerospace Engineering</p><p>Completed undergraduate engineering work in aerodynamics, flight mechanics and computational modelling.</p>
+
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="contact-copy">
+        <div class="section-label"><span>04</span> / COMMUNICATIONS</div>
+        <h2 id="contact-title">Let’s talk aerospace<span>.</span></h2>
+        <p>I&rsquo;m open to aerospace engineering roles in aircraft structures, composite materials, and computational aerodynamics. If you&rsquo;re hiring, I&rsquo;d be glad to hear from you.</p>
+      </div>
+      <div class="contact-links">
+        <a class="button primary" href="mailto:sagarchawla1999@gmail.com">sagarchawla1999@gmail.com <span aria-hidden="true">↗</span></a>
+        <a class="button secondary" href="https://www.linkedin.com/in/sagarchawla99" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer><div class="shell footer-inner"><span>© Sagar Chawla</span><a href="#top">Back to top ↑</a></div></footer>
+
+  <dialog id="case-study" aria-labelledby="case-title">
+    <div class="case-top"><span class="eyebrow">PROJECT CASE STUDY</span><form method="dialog"><button class="close" type="submit" aria-label="Close case study" autofocus>×</button></form></div>
+    <div id="case-content"></div>
+  </dialog>
+  <dialog id="report-viewer" aria-labelledby="report-viewer-title">
+    <div class="case-top">
+      <span id="report-viewer-title">BTech report figures</span>
+      <form method="dialog"><button class="close" type="submit" aria-label="Close figure gallery" autofocus>×</button></form>
+    </div>
+    <figure>
+      <div class="report-viewer-stage"><img alt=""></div>
+      <figcaption aria-live="polite"></figcaption>
+    </figure>
+    <div class="report-viewer-controls">
+      <button type="button" data-step="-1"><span aria-hidden="true">←</span> Previous</button>
+      <span class="report-viewer-count"></span>
+      <button type="button" data-step="1">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </dialog>
+</body>
+</html>
+
